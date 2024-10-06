@@ -47,7 +47,7 @@ const jumbotronContent = [
 
  
     {
-        image: 'photos/IMG-20240908-WA0144.jpg',
+        image: 'photos/IMG-20240920-WA0043.jpg',
         description: 'Voice of the Youth 🎤'
     },
     {
