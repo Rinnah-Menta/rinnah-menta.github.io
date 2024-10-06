@@ -148,35 +148,36 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Add this to your script.js file
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to scroll to a specific element
-    function scrollToElement(elementId) {
-        const element = document.getElementById(elementId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            console.error(`Element with id "${elementId}" not found`);
-        }
-    }
+// Add this to your existing script.js file
 
-    // Add click event listener to the document
-    document.addEventListener('click', function(event) {
-        // Check if the clicked element or its parent has the class 'scroll-down-btn'
-        const scrollBtn = event.target.closest('.scroll-down-btn');
-        if (scrollBtn) {
-            event.preventDefault();
-            scrollToElement('about');
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS with custom settings
+    AOS.init({
+        duration: 800,
+        offset: 100,
+        once: true,
+        mirror: false,
+        anchorPlacement: 'top-bottom',
     });
 
-    // Optional: Add the button dynamically if it doesn't exist in HTML
-    const jumbotron = document.querySelector('.jumbotron');
-    if (jumbotron && !document.querySelector('.scroll-down-btn')) {
-        const scrollBtn = document.createElement('button');
-        scrollBtn.className = 'scroll-down-btn';
-        scrollBtn.setAttribute('aria-label', 'Scroll to About section');
-        scrollBtn.innerHTML = '<i class="fas fa-chevron-down"></i>';
-        jumbotron.appendChild(scrollBtn);
-    }
+    // Optional: Add a slight delay before starting animations
+    setTimeout(function() {
+        document.querySelectorAll('.photo-wrapper').forEach(function(wrapper) {
+            wrapper.style.visibility = 'visible';
+        });
+    }, 200);
+});
+
+// Optional: Reinitialize AOS on window resize
+window.addEventListener('resize', function() {
+    AOS.refresh();
+});
+
+// Add to your existing JavaScript
+document.querySelector('.see-more-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const aboutSection = document.querySelector('#about');
+    aboutSection.scrollIntoView({
+        behavior: 'smooth'
+    });
 });

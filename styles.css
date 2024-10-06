@@ -43,11 +43,124 @@ h2 {
     margin-top: 0;
 }
 
+/* Add these styles to your CSS */
+
 .photo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
+    perspective: 1000px; /* This creates a 3D space for our flap effect */
+}
+
+.photo-wrapper {
+    position: relative;
+    transform-style: preserve-3d;
+    visibility: hidden;
+}
+
+.photo-wrapper.aos-animate {
+    visibility: visible;
+}
+
+/* Base flap styles */
+.photo-flap {
+    position: relative;
+    transform-origin: top;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: rotateX(-90deg);
+}
+
+/* Animated state */
+.aos-animate .photo-flap {
+    transform: rotateX(0deg);
+}
+
+/* Actual photo styles */
+.photo-flap img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.photo-flap:hover img {
+    transform: scale(1.05);
+}
+
+/* Create a staggered effect for the flaps */
+.photo-wrapper:nth-child(odd) .photo-flap {
+    transform-origin: left top;
+    transform: rotateY(-90deg);
+}
+
+.aos-animate .photo-wrapper:nth-child(odd) .photo-flap {
+    transform: rotateY(0deg);
+}
+
+/* Add some delay for a cascade effect */
+@media (min-width: 768px) {
+    .photo-wrapper:nth-child(2) { transition-delay: 0.1s; }
+    .photo-wrapper:nth-child(3) { transition-delay: 0.2s; }
+    .photo-wrapper:nth-child(4) { transition-delay: 0.3s; }
+    .photo-wrapper:nth-child(5) { transition-delay: 0.4s; }
+    .photo-wrapper:nth-child(6) { transition-delay: 0.5s; }
+    .photo-wrapper:nth-child(7) { transition-delay: 0.6s; }
+    .photo-wrapper:nth-child(8) { transition-delay: 0.7s; }
+    .photo-wrapper:nth-child(9) { transition-delay: 0.8s; }
+}
+
+/* Add to your existing CSS */
+.see-more-btn {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.see-more-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.see-more-btn span {
+    margin-right: 8px;
+}
+
+.see-more-btn i {
+    font-size: 0.8em;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Additional styles for better responsiveness */
+@media (max-width: 768px) {
+    .see-more-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
 }
 
 .photo {
@@ -524,48 +637,42 @@ footer {
         background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
         z-index: 1;
     } }
-    @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% {
-            transform: translateY(0);
-        }
-        40% {
-            transform: translateY(-10px);
-        }
-        60% {
-            transform: translateY(-5px);
-        }
-    }
+    /* Add these to your existing styles.css */
 
-    .scroll-down-btn {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(255, 255, 255, 0.2);
-        border: 2px solid white;
-        border-radius: 50%;
-        color: white;
-        font-size: 1.5rem;
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 10;
-        animation: bounce 2s infinite;
-    }
+/* Smooth scroll behavior for the entire page */
+html {
+    scroll-behavior: smooth;
+}
 
-    .scroll-down-btn:hover {
-        background: rgba(255, 255, 255, 0.4);
-        transform: translateX(-50%) scale(1.1);
-    }
+/* Base transition for all sections */
+.section {
+    transition: all 0.5s ease-in-out;
+}
 
-    .scroll-down-btn i {
-        transition: transform 0.3s ease;
-    }
+/* Optional: Add some custom animations */
+[data-aos="custom-fade-up"] {
+    opacity: 0;
+    transform: translateY(100px);
+    transition-property: transform, opacity;
+}
 
-    .scroll-down-btn:hover i {
-        transform: translateY(3px);
+[data-aos="custom-fade-up"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure animations work well on mobile */
+@media (max-width: 768px) {
+    [data-aos-delay] {
+        transition-delay: 0s !important;
     }
+}
+
+/* Optional: Add a subtle scale effect to photos on hover */
+.photo-gallery .photo {
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo-gallery .photo:hover {
+    transform: scale(1.05);
+}
