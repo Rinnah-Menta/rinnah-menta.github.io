@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rinnah Menta - About Me</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="falling-hearts"></div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+                    <circle cx="50" cy="50" r="48" fill="#FF69B4" />
+                    <path d="M25 70 V30 H50 Q70 30 70 50 Q70 70 50 70 H45 L65 90" stroke="#FFF" stroke-width="8" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+                    <path d="M25 70 L45 50" stroke="#FFF" stroke-width="8" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+                <span>Rinnah Menta</span>
+            </a>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#about">About</a></li>
+                <li class="nav-item"><a href="#interests">Interests</a></li>
+                <li class="nav-item"><a href="#hobbies">Hobbies</a></li>
+                <li class="nav-item"><a href="#gallery">Gallery</a></li>
+                <li class="nav-item"><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <div class="jumbotron-content">
+            <h1>Rinnah Menta</h1>
+            <p id="jumbotron-description">Youth Radio Presenter | Influencer | Voice of a Generation</p>
+        </div>
+        <div class="jumbotron-bg"></div>
+    </div>
+
+    <div class="container">
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>Hey there! I'm Rinnah Menta, a passionate radio presenter with a mission to inspire and connect with the youth of today. With my vibrant personality and love for music, I bring energy and excitement to the airwaves every day.</p>
+        </section>
+
+        <section id="interests" class="section">
+            <h2>My Interests</h2>
+            <ul>
+                <li>Music (all genres, but especially indie and hip-hop)</li>
+                <li>Social media trends and digital culture</li>
+                <li>Youth empowerment and education</li>
+                <li>Fashion and personal style</li>
+                <li>Environmental activism</li>
+            </ul>
+        </section>
+
+        <section id="hobbies" class="section">
+            <h2>Hobbies</h2>
+            <ul>
+                <li>Podcasting</li>
+                <li>Learning New Skills</li>
+                <li>Radio Presentations</li>
+                <li>Making New Friends</li>
+                <li>Watching Movies</li>
+                <li>Listening to Gospel Music</li>
+            </ul>
+        </section>
+
+        <section id="gallery" class="section">
+            <h2>Photo Gallery</h2>
+            <div class="photo-gallery">
+                <a href="photos/IMG-20240908-WA0145.jpg" class="lightbox-trigger">
+                    <img src="photos/IMG-20240908-WA0145.jpg" alt="Rinnah at a music festival" class="photo">
+                </a>
+                <a href="photos/IMG-20240908-WA0146.jpg" class="lightbox-trigger">
+                    <img src="photos/IMG-20240908-WA0146.jpg" alt="Rinnah speaking at a youth event" class="photo">
+                </a>
+                <a href="photos/IMG-20240910-WA0550.jpg" class="lightbox-trigger">
+                    <img src="photos/IMG-20240910-WA0550.jpg" alt="Rinnah's latest fashion look" class="photo">
+                </a> <a href="photos/IMG-20240920-WA0042.jpg" class="lightbox-trigger">
+                    <img src="photos/IMG-20240920-WA0042.jpg" alt="Rinnah at a music festival" class="photo">
+                </a>
+                <a href="photos/IMG-20240920-WA0043.jpg" class="lightbox-trigger">
+                    <img src="photos/IMG-20240920-WA0043.jpg" alt="Rinnah speaking at a youth event" class="photo">
+                </a>
+                <a href="photos/IMG-20240920-WA0048.png" class="lightbox-trigger">
+                    <img src="photos/IMG-20240920-WA0048.png" alt="Rinnah's latest fashion look" class="photo">
+                </a> <a href="photos/IMG-20240920-WA0050.jpg" class="lightbox-trigger">
+                    <img src="photos/IMG-20240920-WA0050.jpg" alt="Rinnah at a music festival" class="photo">
+                </a>
+                <a href="photos/IMG-20240920-WA0051(1).jpg" class="lightbox-trigger">
+                    <img src="photos/IMG-20240920-WA0051(1).jpg" alt="Rinnah speaking at a youth event" class="photo">
+                </a>
+                <a href="photos/IMG-20240920-WA0052.jpg" class="lightbox-trigger">
+                    <img src="photos/IMG-20240920-WA0052.jpg" alt="Rinnah's latest fashion look" class="photo">
+                </a>
+            </div>
+        </section>
+
+           <!-- Lightbox container -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="caption"></div>
+    </div>
+    <!-- Lightbox Modal -->
+<div id="lightboxModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="caption"></div>
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+    </div>
+</div>
+
+<section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <div class="contact-info">
+        <p><strong>Phone:</strong> <a href="tel:+256705810068">+256 705 810068</a></p>
+        <p><strong>E-mail:</strong> <a href="mailto:rinnahmenta@gmail.com">rinnahmenta@gmail.com</a></p>
+        <p><strong>Website:</strong> <a href="https://www.rinnahmenta.com" target="_blank">www.rinnahmenta.com</a></p>
+    </div>
+    <div class="contact-map">
+        <p><strong>Address:</strong></p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.749679675327!2d32.571801035819334!3d0.33608756400435463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb8f6d08f335%3A0xd1e730596c339ec2!2sHii5%20Radio!5e0!3m2!1sen!2sug!4v1728197238174!5m2!1sen!2sug" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Rinnah Menta. All rights reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/15551234567?text=Hi%20Rinnah%20Menta" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
