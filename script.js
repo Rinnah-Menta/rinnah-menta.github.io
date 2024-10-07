@@ -45,14 +45,17 @@ const jumbotronBg = document.querySelector('.jumbotron-bg');
 const jumbotronDescription = document.getElementById('jumbotron-description');
 const jumbotronContent = [
 
- 
+    {
+        image: 'photos/IMG-20240908-WA0146.jpg',
+        description: 'Radio Presenter 📻'
+    },
     {
         image: 'photos/IMG-20240920-WA0043.jpg',
         description: 'Voice of the Youth 🎤'
     },
     {
         image: 'photos/IMG-20240910-WA0550.jpg',
-        description: 'Model 💃'
+        description: 'Role Model 💃'
     },
     {
         image: 'photos/IMG-20240920-WA0042.jpg',
@@ -61,11 +64,8 @@ const jumbotronContent = [
     {
         image: 'photos/IMG-20240920-WA0048.png',
         description: 'Lifist 🥰'
-    },
-    {
-        image: 'photos/IMG-20240908-WA0146.jpg',
-        description: 'Radio Presenter 📻'
-    },
+    }
+
 ];
 let currentBgIndex = 0;
 
@@ -85,13 +85,6 @@ function changeBackground() {
 changeBackground();
 setInterval(changeBackground, 5000);
 
-// Lightbox functionality
-const modal = document.getElementById('lightboxModal');
-const modalImg = document.getElementById('lightbox-img');
-const captionText = document.getElementById('caption');
-const closeBtn = document.getElementsByClassName('close')[0];
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
 
 let currentIndex = 0;
 const images = document.querySelectorAll('.photo');
@@ -105,50 +98,6 @@ images.forEach((img, index) => {
     }
 });
 
-function closeLightbox() {
-    modal.style.display = 'none';
-}
-
-closeBtn.onclick = closeLightbox;
-
-// Close the lightbox when clicking outside the image
-window.onclick = function(event) {
-    if (event.target == modal) {
-        closeLightbox();
-    }
-}
-
-// Navigate to previous image
-function showPrevious() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    modalImg.src = images[currentIndex].src;
-    captionText.innerHTML = images[currentIndex].alt;
-}
-
-// Navigate to next image
-function showNext() {
-    currentIndex = (currentIndex + 1) % images.length;
-    modalImg.src = images[currentIndex].src;
-    captionText.innerHTML = images[currentIndex].alt;
-}
-
-prevBtn.onclick = showPrevious;
-nextBtn.onclick = showNext;
-
-// Keyboard navigation
-document.addEventListener('keydown', function(e) {
-    if (modal.style.display === 'block') {
-        if (e.key === 'ArrowLeft') {
-            showPrevious();
-        } else if (e.key === 'ArrowRight') {
-            showNext();
-        } else if (e.key === 'Escape') {
-            closeLightbox();
-        }
-    }
-});
-
-// Add this to your existing script.js file
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS with custom settings
